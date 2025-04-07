@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Short Surahs</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* style.css */
+      body {
+        font-family: sans-serif;
+        background-color: #f4f4f4;
+        margin: 20px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .surah-card {
+        background-color: #80ed99;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        margin-bottom: 20px;
+        max-width: 600px;
+        width: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .surah-card:hover {
+        transform: scale(1.02);
+      }
+
+      .surah-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+
+      .surah-text {
+        font-size: 30px;
+        text-align: center;
+        font-family: "Scheherazade New", serif;
+        line-height: 1.8;
+      }
+
+      .custom-checkbox {
+        /* Base styles */
+        border: 2px solid #4f46e5; /* border-indigo-600 */
+        background-color: #6366f1; /* bg-indigo-500 */
+        width: 1.25rem;
+        height: 1.25rem;
+        appearance: none;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        transition: all 0.2s ease;
+      }
+
+      /* When checked */
+      .custom-checkbox:checked {
+        background-color: #4ade80; /* bg-green-400 */
+        color: #166534; /* text-green-800 */
+        border-color: #22c55e; /* border-green-500 */
+      }
+
+      /* Optional: Show checkmark when checked */
+      .custom-checkbox:checked::after {
+        content: "✔";
+        color: inherit;
+        font-size: 0.9rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .counter-parent {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+      }
+      .counter {
+        font-weight: bold;
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Ayatul Kursi</h2>
+      <p class="surah-text">
+        اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ
+        سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ
+        مَنْ ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا
+        بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۚ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ
+        عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ
+        وَالْأَرْضَ ۚ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ
+      </p>
+    </article>
+
+    <article id="Al-Kafirun" class="surah-card">
+      <h2 class="surah-title">Surah Al-Kafirun</h2>
+      <p class="surah-text">
+        قُلْ يَا أَيُّهَا الْكَافِرُونَ (1) لَا أَعْبُدُ مَا تَعْبُدُونَ (2)
+        وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ (3) وَلَا أَنَا عَابِدٌ مَّا
+        عَبَدتُّمْ (4) وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ (5) لَكُمْ
+        دِينُكُمْ وَلِيَ دِينِ (6)
+      </p>
+    </article>
+
+    <article id="Al-Ikhlas" class="surah-card">
+      <h2 class="surah-title">Surah Al-Ikhlas</h2>
+      <p class="surah-text">
+        قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ
+        يُولَدْ (3) وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ (4)
+      </p>
+    </article>
+
+    <article id="Al-Falaq" class="surah-card">
+      <h2 class="surah-title">Surah Al-Falaq</h2>
+      <p class="surah-text">
+        قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِن شَرِّ مَا خَلَقَ (2) وَمِن شَرِّ
+        غَاسِقٍ إِذَا وَقَبَ (3) وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4)
+        وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)
+      </p>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Surah An-Nas</h2>
+      <p class="surah-text">
+        قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ
+        (3) مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي
+        صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)
+      </p>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Powerful Dhikr</h2>
+      <p class="surah-text">
+        لَا إِلٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ
+        وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">3X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Reliance on Allah</h2>
+      <p class="surah-text">حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ</p>
+      <div class="counter-parent">
+        <span class="counter">7X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Seeking Protection from Harm</h2>
+      <p class="surah-text">
+        بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ
+        وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">3X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">اللَّهُم َّ أَجِرْنِي مِن َ النَّار</p>
+      <div class="counter-parent">
+        <span class="counter">7X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"># Dua of contentment</h2>
+      <p class="surah-text">
+        رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ صَلَّى
+        اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا
+      </p>
+      <div class="counter-parent">
+        <span class="counter">3X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"># Protection from the Evil Eye and Harm</h2>
+      <p class="surah-text">
+        أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِن شَرِّ مَا خَلَقَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">7X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"># Dua for Seeking Forgiveness</h2>
+      <p class="surah-text">
+        رَبِّ اغْفِرْ لِي وَارْحَمْنِي وَهْدِنِي وَجَبْرِني وَعَافِنِي
+        وَرَزُقْنِي
+      </p>
+      <div class="counter-parent">
+        <span class="counter">7X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"># Protection from Anxiety and Sadness</h2>
+      <p class="surah-text">
+        اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ
+        وَالْكَسَلِ وَالْبُخْلِ وَالْجُبْنِ وَذَلَّةِ الدَّيْنِ وَغَلَبَةِ
+        الرِّجَالِ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">3X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        سُبْحَانَ اللهِ ، وَالْحَمْدُ لِلهِ وَلَا إِلٰهَ إِلَّا اللهُ ، وَاللهُ
+        أَكْبَرُ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">33X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        سُبْحَانَ اللهِ وَبِحَمْدِهِ ، سُبْحَانَ اللهِ الْعَظِيْم
+      </p>
+      <div class="counter-parent">
+        <span class="counter">100X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">يَا ذَا الْجَلَالِ وَالْإِكْرَامِ</p>
+      <div class="counter-parent">
+        <span class="counter">33X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        يَا حَيُّ يَا قَيُّوْمُ ، بِرَحْمَتِكَ أَسْتَغِيْثُ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">7X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        لَآ إِلٰهَ إِلَّآ أَنْتَ سُبۡحٰنَكَ إِنِّيْ كُنْتُ مِنَ الظّٰلِمِيْنَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">7X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        أَسْتَغْفِرُ اللهَ الْعَظِيْمَ الَّذِيْ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ
+        الْقَيُّوْمُ ، وَأَتُوْبُ إِلَيْهِ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">7X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">رَبِّ إِنِّي ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي</p>
+      <div class="counter-parent">
+        <span class="counter">7X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        أَنْتَ وَلِيُّنَا فَاغْفِرْ لَنَا وَارْحَمْنَا ۖ وَأَنْتَ خَيْرُ
+        الْغَافِرِينَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ
+        النَّارِ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبَّنَا آمَنَّا فَاغْفِرْ لَنَا وَارْحَمْنَا وَأَنْتَ خَيْرُ
+        الرَّاحِمِينَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ خَيْرُ الرَّاحِمِينَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبِّ إِنِّي أَعُوذُ بِكَ أَنْ أَسْأَلَكَ مَا لَيْسَ لِي بِهِ عِلْمٌ ۖ
+        وَإِلَّا تَغْفِرْ لِي وَتَرْحَمْنِي أَكُنْ مِنَ الْخَاسِرِينَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبَّنَا أَتْمِمْ لَنَا نُورَنَا وَاغْفِرْ لَنَا ۖ إِنَّكَ عَلَىٰ كُلِّ
+        شَيْءٍ قَدِيرٌ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">رَبِّ ابْنِ لِي عِنْدَكَ بَيْتًا فِي الْجَنَّةِ</p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبَّنَا اصْرِفْ عَنَّا عَذَابَ جَهَنَّمَ ۖ إِنَّ عَذَابَهَا كَانَ
+        غَرَامًا. إِنَّهَا سَاءَتْ مُسْتَقَرًّا وَمُقَامًا
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ
+        النَّارِ. رَبَّنَا إِنَّكَ مَنْ تُدْخِلِ النَّارَ فَقَدْ أَخْزَيْتَهُ ۖ
+        وَمَا لِلظَّالِمِينَ مِنْ أَنْصَارٍ. رَبَّنَا إِنَّنَا سَمِعْنَا
+        مُنَادِيًا يُنَادِي لِلْإِيمَانِ أَنْ آمِنُوا بِرَبِّكُمْ فَآمَنَّا ۚ
+        رَبَّنَا فَاغْفِرْ لَنَا ذُنُوبَنَا وَكَفِّرْ عَنَّا سَيِّئَاتِنَا
+        وَتَوَفَّنَا مَعَ الْأَبْرَارِ. رَبَّنَا وَآتِنَا مَا وَعَدْتَنَا عَلَىٰ
+        رُسُلِكَ وَلَا تُخْزِنَا يَوْمَ الْقِيَامَةِ ۗ إِنَّكَ لَا تُخْلِفُ
+        الْمِيعَادَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبَّنَا وَسِعْتَ كُلَّ شَيْءٍ رَحْمَةً وَعِلْمًا فَاغْفِرْ لِلَّذِينَ
+        تَابُوا وَاتَّبَعُوا سَبِيلَكَ وَقِهِمْ عَذَابَ الْجَحِيمِ. رَبَّنَا
+        وَأَدْخِلْهُمْ جَنَّاتِ عَدْنٍ الَّتِي وَعَدْتَهُمْ وَمَنْ صَلَحَ مِنْ
+        آبَائِهِمْ وَأَزْوَاجِهِمْ وَذُرِّيَّاتِهِمْ ۚ إِنَّكَ أَنْتَ الْعَزِيزُ
+        الْحَكِيمُ. وَقِهِمُ السَّيِّئَاتِ ۚ وَمَنْ تَقِ السَّيِّئَاتِ
+        يَوْمَئِذٍ فَقَدْ رَحِمْتَهُ ۚ وَذَٰلِكَ هُوَ الْفَوْزُ الْعَظِيمُ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبِّ هَبْ لِي حُكْمًا وَأَلْحِقْنِي بِالصَّالِحِينَ. وَاجْعَلْ لِي
+        لِسَانَ صِدْقٍ فِي الْآخِرِينَ. وَاجْعَلْنِي مِنْ وَرَثَةِ جَنَّةِ
+        النَّعِيمِ… وَلَا تُخْزِنِي يَوْمَ يُبْعَثُونَ. يَوْمَ لَا يَنْفَعُ
+        مَالٌ وَلَا بَنُونَ. إِلَّا مَنْ أَتَى اللَّهَ بِقَلْبٍ سَلِيمٍ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِنْ ذُرِّيَّتِي ۚ رَبَّنَا
+        وَتَقَبَّلْ دُعَاءِ. رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ
+        وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبِّ هَبْ لِي مِنْ لَدُنْكَ ذُرِّيَّةً طَيِّبَةً ۖ إِنَّكَ سَمِيعُ
+        الدُّعَاءِ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ
+        وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ
+        وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ وَأَدْخِلْنِي
+        بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">رَبِّ أَعُوذُ بِكَ مِنْ هَمَزَاتِ الشَّيَاطِينِ</p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Dua for Forgiveness & Ease</h2>
+      <p class="surah-text">
+        رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا
+        وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ
+        قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ
+        وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنْتَ مَوْلَانَا
+        فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Dua for Forgiveness & Victory</h2>
+      <p class="surah-text">
+        رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِي أَمْرِنَا وَثَبِّتْ
+        أَقْدَامَنَا وَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا وَانْصُرْنَا
+        عَلَى الْقَوْمِ الْكَافِرِينَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">
+        Dua of Prophet Lut AS for Help Against The Corrupt
+      </h2>
+      <p class="surah-text">رَبِّ انْصُرْنِي عَلَى الْقَوْمِ الْمُفْسِدِينَ</p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Protection From Being With The Oppressors</h2>
+      <p class="surah-text">
+        رَبَّنَا لَا تَجْعَلْنَا مَعَ الْقَوْمِ الظَّالِمِينَ رَبَّنَا لَا
+        تَجْعَلْنَا فِتْنَةً لِلْقَوْمِ الظَّالِمِينَ. وَنَجِّنَا بِرَحْمَتِكَ
+        مِنَ الْقَوْمِ الْكَافِرِينَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Protection From Persecution</h2>
+      <p class="surah-text">
+        رَبَّنَا عَلَيْكَ تَوَكَّلْنَا وَإِلَيْكَ أَنَبْنَا وَإِلَيْكَ
+        الْمَصِيرُ. رَبَّنَا لَا تَجْعَلْنَا فِتْنَةً لِلَّذِينَ كَفَرُوا
+        وَاغْفِرْ لَنَا رَبَّنَا ۖ إِنَّكَ أَنْتَ الْعَزِيزُ الْحَكِيمُ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبِّ – أَنِّيْ مَسَّنِيَ الضُّرُّ وَأَنْتَ أَرْحَمُ الرَّاحِمِيْنَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        اَللّٰهُمَّ يَا – فَاطِرَ السَّمٰوَاتِ وَالْأَرْضِ أَنْتَ وَلِـيِّيْ فِي
+        الدُّنْيَا وَالْآخِرَةِ تَوَفَّنِيْ مُسْلِمًا وَّأَلْحِقْنِيْ
+        بِالصَّالِحِيْنَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ. وَتُبْ
+        عَلَيْنَا ۖ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Sayyid al-Istighfar</h2>
+      <p class="surah-text">
+        اَللّٰهُمَّ أَنْتَ رَبِّيْ لَا إِلٰهَ إِلَّا أَنْتَ ، خَلَقْتَنِيْ
+        وَأَنَا عَبْدُكَ ، وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ ،
+        أَعُوْذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ ، أَبُوْءُ لَكَ بِنِعْمَتِكَ
+        عَلَيَّ وَأَبُوْءُ لَكَ بِذَنْبِيْ ، فَاغْفِرْ لِيْ فَإِنَّهُ لَا
+        يَغْفِرُ الذُّنُوْبَ إِلَّا أَنْتَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Protect Yourself From the 4 Evils</h2>
+      <p class="surah-text">
+        اَللّٰهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ ، فَاطِرَ السَّمٰوَاتِ
+        وَالْأَرْضِ ، رَبَّ كُلِّ شَيْءٍ وَمَلِيْكَهُ ، أَشْهَدُ أَنْ لَّا
+        إِلٰهَ إِلَّا أَنْتَ ، أَعُوْذُ بِكَ مِنْ شَرِّ نَفْسِيْ ، وَمِنْ شَرِّ
+        الشَّيْطَانِ وَشِرْكِهِ ، وَأَنْ أَقْتَرِفَ عَلَىٰ نَفْسِيْ سُوْءًا ،
+        أَوْ أَجُرَّهُ إِلَىٰ مُسْلِمٍ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Start Your Day by Renewing Tawhid</h2>
+      <p class="surah-text">
+        أَصْبَحْنَا عَلَىٰ فِطْرَةِ الْإِسْلَامِ ، وَعَلَىٰ كَلِمَةِ
+        الْإِخْلَاصِ ، وَعَلَىٰ دِيْنِ نَبِيِّنَا مُحَمَّدٍ ، وَعَلَىٰ مِلَّةِ
+        أَبِيْنَا إِبْرَاهِيْمَ حَنِيْفًا مُّسْلِمًا وَّمَا كَانَ مِنَ
+        الْمُشْرِكِيْنَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Ask Allah for a Good Day</h2>
+      <p class="surah-text">
+        أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلّٰهِ وَالْحَمْدُ لِلّٰهِ ، لَا
+        إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ ، لَهُ الْمُلْكُ وَلَهُ
+        الْحَمْدُ ، وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيْرٌ ، رَبِّ أَسْأَلُكَ
+        خَيْرَ مَا فِيْ هٰذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ ، وَأَعُوْذُ بِكَ
+        مِنْ شَرِّ مَا فِيْ هٰذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ ، رَبِّ
+        أَعُوْذُ بِكَ مِنَ الْكَسَلِ وَسُوْءِ الْكِبَرِ ، رَبِّ أَعُوْذُ بِكَ
+        مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Ask Allah to Bless Your Day</h2>
+      <p class="surah-text">
+        أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلّٰهِ رَبِّ الْعَالَمِيْنَ ،
+        اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ خَيْرَ هٰذَا الْيَوْمِ ، فَتْحَهُ
+        وَنَصْرَهُ وَنُوْرَهُ وَبَرَكَتَهُ وَهُدَاهُ ، وَأَعُوْذُ بِكَ مِنْ
+        شَرِّ مَا فِيْهِ وَشَرِّ مَا بَعْدَهُ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">Protect Yourself From All Harm</h2>
+      <p class="surah-text">
+        بِسْمِ اللّٰهِ الَّذِيْ لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ
+        وَلَا فِي السَّمَاءِ ، وَهُوَ السَّمِيْعُ الْعَلِيْمُ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title">4 Phrases That Outweigh All Other Dhikr</h2>
+      <p class="surah-text">
+        سُبْحَانَ اللّٰهِ وَبِحَمْدِهِ ، عَدَدَ خَلْقِهِ ، وَرِضَا نَفْسِهِ ،
+        وَزِنَةَ عَرْشِهِ ، وَمِدَادَ كَلِمَاتِهِ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        حَسْبِيَ اللّٰهُ لَا إِلٰهَ إِلَّا هُوَ ، عَلَيْهِ تَوَكَّلْتُ ، وَهُوَ
+        رَبُّ الْعَرْشِ الْعَظِيْمِ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+
+    <article id="" class="surah-card">
+      <h2 class="surah-title"></h2>
+      <p class="surah-text">
+        اَللّٰهُمَّ عَافِنِيْ فِيْ بَدَنِيْ ، اَللّٰهُمَّ عَافِنِيْ فِيْ
+        سَمْعِيْ ، اَللّٰهُمَّ عَافِنِيْ فِيْ بَصَرِيْ ، لَا إِلٰهَ إِلَّا
+        أَنْتَ ، اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْكُفْرِ وَالْفَقْرِ،
+        وأَعُوْذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، لَا إِلٰهَ إِلَّا أَنْتَ
+      </p>
+      <div class="counter-parent">
+        <span class="counter">X</span>
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+        <input type="checkbox" class="custom-checkbox" />
+      </div>
+    </article>
+  </body>
+</html>

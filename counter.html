@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Daily Dhikr</title>
+        <!-- Daisy UI CDN -->
+        <link
+          href="https://cdn.jsdelivr.net/npm/daisyui@5"
+          rel="stylesheet"
+          type="text/css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link
+          href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+          rel="stylesheet"
+          type="text/css"
+        />
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        <!-- css styles -->
+        <style>
+          .scheherazade-new-regular {
+            font-family: "Scheherazade New", serif;
+            font-weight: 500;
+            font-style: normal;
+          }
+        </style>
+      </head>
+  <body>
+
+    <article
+    id=""
+    class="bg-[#80ed99] p-6 rounded-lg shadow-2xl transform transition-all md:w-[600px] lg:w-full"
+  >
+    <h2 class="title pb-6 text-2xl font-bold">
+      # Dua for Barakah (Blessing)
+    </h2>
+    <p class="dua scheherazade-new-regular text-[30px] text-center">
+      اللَّهُمَّ بَارِكْ لِي فِيهِ وَزِدْنِي مِنْهُ
+    </p>
+    <div id="repeat" class="pt-6 flex items-center">
+      <div class="repeats font-bold text-2xl pr-3 flex items-center justify-evenly">
+        <span class="mr-6">3x</span> 
+        <span id="Barakah">0</span>
+        <button id="BarakahLimit" class="border bg-white hover:bg-gray-200 rounded-md p-1 px-2 justify-end">
+          Counter
+        </button>
+      </div>
+      <script>
+        const start = document.getElementById("Barakah");
+        const button = document.getElementById("BarakahLimit");
+        const limit = 3;
+        let i = 0;
+      
+        button.addEventListener("click", function () {
+          if (i < limit) {
+            i++;
+            start.innerText = i;
+          }
+          if (i === limit) {
+            button.disabled = true;
+            button.innerText = "Limit Reached";
+            button.style.backgroundColor = "#ccc"; // Disable effect
+            button.style.cursor = "not-allowed";
+          }
+        });
+      </script>
+    </article>
+
+  </body>
+</html>
