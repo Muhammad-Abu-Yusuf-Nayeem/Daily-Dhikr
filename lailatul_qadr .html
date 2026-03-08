@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lailatul Qadr — Night Plan</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #1a1a1a;
+      --muted: #000000;
+      --faint: #f6f4f0;
+      --gold: #a0721e;
+      --gold-light: #dfc98a;
+      --rule: #e4dfd6;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: var(--ink);
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 1900px;
+      margin: 0 auto;
+      padding: 10px 10px 10px;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      line-height: 1;
+    }
+
+    .header .sub {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── Section label ── */
+    .sec-label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--gold);
+      margin-bottom: 7px;
+    }
+
+    /* ── Layout grid ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+
+    /* ── Schedule ── */
+    .block-schedule {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .schedule {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .schedule tr {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .schedule tr:last-child {
+      border-bottom: none;
+    }
+
+    .schedule td {
+      padding: 5px 4px;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+
+    .schedule td.time {
+      color: var(--muted);
+      font-weight: 500;
+      width: 68px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .schedule td.act {
+      font-weight: 400;
+    }
+
+    .schedule td.dur {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .star {
+      color: var(--gold);
+      font-size: 9px;
+    }
+
+    /* ── Dhikr ── */
+    .block-dhikr {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .dhikr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .dc {
+      background: var(--faint);
+      border-radius: 5px;
+      padding: 7px 9px;
+    }
+
+    .dc-ar {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .dc-en {
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── Tips ── */
+    .block-tips {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .tip-item {
+      display: flex;
+      gap: 8px;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.45;
+      font-size: 17px;
+    }
+
+    .tip-item:last-child {
+      border-bottom: none;
+    }
+
+    .tip-n {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      font-size: 15px;
+      font-weight: 600;
+      flex-shrink: 0;
+      line-height: 1.3;
+    }
+
+    /* ── Duas ── */
+    .block-duas {
+      grid-column: 1 / 4;
+      grid-row: 2;
+    }
+
+    .dua-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 7px;
+    }
+
+    .dua-card {
+      background: var(--faint);
+      border-radius: 6px;
+      padding: 1px 10px 1px;
+      border-top: 2px solid var(--gold-light);
+    }
+
+    .dua-card.highlight {
+      border-top-color: var(--gold);
+      background: #fdf8ef;
+    }
+
+    .dua-lbl {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--gold);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .dua-ar {
+      font-size: 22px;
+      line-height: 1.9;
+      text-align: right;
+      direction: rtl;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .dua-tr {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.45;
+      display: none;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media print {
+      body {
+        font-size: 12px;
+      }
+
+      .page {
+        padding: 16px 20px;
+        max-width: 100%;
+      }
+
+      @page {
+        margin: 1cm;
+        size: A4 landscape;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <div class="header">
+      <h1>🌙 Lailatul Qadr — Night Plan</h1>
+      <span class="sub">Last 10 nights of Ramadan</span>
+    </div>
+
+    <div class="layout">
+
+      <!-- Schedule -->
+      <div class="block-schedule">
+        <div class="sec-label">Night Schedule</div>
+        <table class="schedule">
+          <tr>
+            <td class="time">After Isha</td>
+            <td class="act">Niyyah + Short Rest</td>
+            <td class="dur">30 min</td>
+          </tr>
+          <tr>
+            <td class="time">Then</td>
+            <td class="act">Tahajjud (8–12 rak'ah)</td>
+            <td class="dur">10-15 min</td>
+          </tr>
+          <tr>
+            <td class="time">Then</td>
+            <td class="act">Qur'an + Dhikr</td>
+            <td class="dur">20-25 min</td>
+          </tr>
+          <tr>
+            <td class="time">Last Hour <span class="star">★★★</span></td>
+            <td class="act">Deep Dua before Fajr </td>
+            <td class="dur">10-30 min</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Dhikr -->
+      <div class="block-dhikr">
+        <div class="sec-label">Dhikr 100 Times</div>
+        <div class="dhikr-grid">
+          <div class="dc">
+            <div class="dc-ar">SubhanAllah</div>
+          </div>
+          <div class="dc">
+            <div class="dc-ar">Alhamdulillah</div>
+          </div>
+          <div class="dc">
+            <div class="dc-ar">Allahu Akbar</div>
+          </div>
+          <div class="dc">
+            <div class="dc-ar">Astaghfirullah</div>
+          </div>
+          <div class="dc">
+            <div class="dc-ar">La ilaha illallah</div>
+          </div>
+          <div class="dc">
+            <div class="dc-ar">SubhanAllahi wa bihamdihi</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tips -->
+      <div class="block-tips">
+        <div class="sec-label">Tips</div>
+        <div class="tip-item"><span class="tip-n">1</span>Sleep after Asr/Maghrib to save energy.</div>
+        <div class="tip-item"><span class="tip-n">2</span>Recite Surah Al-Qadr &amp; Al-Ikhlas often.</div>
+        <div class="tip-item"><span class="tip-n">3</span>Cry sincerely in the last hour before Fajr.</div>
+      </div>
+
+      <!-- Duas -->
+      <div class="block-duas">
+        <div class="sec-label">Essential Duas</div>
+        <div class="dua-grid">
+
+          <div class="dua-card highlight">
+            <div class="dua-lbl">✦✦✦ Lailatul Qadr Dua</div>
+            <div class="dua-ar">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+            <div class="dua-tr">O Allah, You are Pardoning and love pardon, so pardon me.</div>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-lbl">Forgiveness</div>
+            <div class="dua-ar">اللَّهُمَّ اغْفِرْ لِي ذُنُوبِي كُلَّهَا دِقَّهَا وَجِلَّهَا</div>
+            <div class="dua-tr">O Allah, forgive all my sins — small and great, first and last.</div>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-lbl">Guidance</div>
+            <div class="dua-ar">اللَّهُمَّ اهْدِنِي وَسَدِّدْنِي</div>
+            <div class="dua-tr">O Allah, guide me and keep me on the straight path.</div>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-lbl">Acceptance</div>
+            <div class="dua-ar">اللَّهُمَّ تَقَبَّلْ مِنِّي إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ</div>
+            <div class="dua-tr">O Allah, accept from me. You are the All-Hearing, All-Knowing.</div>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-lbl">Halal Rizq</div>
+            <div class="dua-ar">اللَّهُمَّ ارْزُقْنِي رِزْقًا حَلَالًا طَيِّبًا وَاسِعًا</div>
+            <div class="dua-tr">O Allah, grant me halal, pure, and abundant provision.</div>
+          </div>
+
+          
+
+          <div class="dua-card">
+            <div class="dua-lbl">Protection</div>
+            <div class="dua-ar">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْفِتَنِ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ</div>
+            <div class="dua-tr">O Allah, I seek refuge in You from all trials, apparent and hidden.</div>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-lbl">For Parents</div>
+            <div class="dua-ar">رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</div>
+            <div class="dua-tr">My Lord, forgive me and my parents and have mercy on them.</div>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-lbl">Praise</div>
+            <div class="dua-ar">اللَّهُمَّ لَكَ الْحَمْدُ كُلُّهُ وَلَكَ الْمُلْكُ كُلُّهُ وَبِيَدِكَ الْخَيْرُ كُلُّهُ
+            </div>
+            <div class="dua-tr">O Allah, all praise, all dominion, and all good belongs to You.</div>
+          </div>
+
+          
+          <div class="dua-card">
+            <div class="dua-lbl">Strong Iman</div>
+            <div class="dua-ar">اللَّهُمَّ يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ</div>
+            <div class="dua-tr">O Turner of hearts, keep my heart firm upon Your religion.</div>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-lbl">Dunya &amp; Akhirah</div>
+            <div class="dua-ar">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ
+              النَّارِ</div>
+            <div class="dua-tr">Our Lord, give us good in this world and the Hereafter, and protect us from the fire.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</body>
+
+</html>

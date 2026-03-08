@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أنتَ وأنا — The Beautiful Contrasts</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #b8973a;
+    --gold-light: #e8d48b;
+    --gold-pale: #f7f0d8;
+    --ink: #1a1410;
+    --ink-soft: #3d3020;
+    --ink-muted: #7a6a50;
+    --white: #ffffff;
+    --cream: #fdfaf4;
+    --line: #e2d9c4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    padding: 3.5rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+  }
+
+  header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 1.5rem auto 0;
+  }
+
+  .header-arabic {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--ink);
+    line-height: 1.6;
+    direction: rtl;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.02em;
+  }
+
+  .header-sub {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .header-desc {
+    margin-top: 1rem;
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+  }
+
+  /* ── Main Layout ── */
+  main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* ── Section Title ── */
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin: 3.5rem 0 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-title::before,
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .card:hover {
+    border-color: var(--gold-light);
+    box-shadow: 0 4px 28px rgba(184,151,58,0.08);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold);
+    border-radius: 2px 0 0 2px;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .card:hover::before { opacity: 1; }
+
+  /* ── Arabic Text ── */
+  .arabic {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    line-height: 2;
+    direction: rtl;
+    text-align: right;
+    color: var(--ink);
+    margin-bottom: 0.9rem;
+  }
+
+  .arabic .anta { color: var(--gold); }
+  .arabic .ana  { color: #8b6f47; }
+
+  /* ── Transliteration ── */
+  .transliteration {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Translation ── */
+  .translation {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    font-weight: 600;
+    border-left: 2px solid var(--gold-light);
+    padding-left: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  /* ── Insight ── */
+  .insight {
+    margin-top: 0.8rem;
+    font-size: 0.84rem;
+    font-style: italic;
+    color: var(--ink-muted);
+    padding: 0.5rem 0.9rem;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .insight::before { content: '✦  '; color: var(--gold); font-style: normal; font-size: 0.7rem; }
+
+  /* ── Big Table ── */
+  .contrast-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 2rem;
+    font-family: 'Lora', serif;
+  }
+
+  .contrast-table th {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--ink);
+    padding: 0.9rem 1.2rem;
+    font-weight: 600;
+  }
+
+  .contrast-table td {
+    padding: 0.85rem 1.2rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+    vertical-align: middle;
+  }
+
+  .contrast-table tr:last-child td { border-bottom: none; }
+  .contrast-table tr:nth-child(even) td { background: var(--cream); }
+  .contrast-table tr:hover td { background: var(--gold-pale); }
+
+  .col-arabic {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.3rem;
+    direction: rtl;
+    text-align: right;
+  }
+  .col-anta { color: var(--gold); font-weight: 700; }
+  .col-ana  { color: #8b6f47; }
+
+  .col-meaning { color: var(--ink-soft); font-style: italic; font-size: 0.88rem; }
+
+  /* ── Quote Block ── */
+  .quote-block {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    padding: 2rem 2.2rem;
+    margin: 3rem 0;
+    text-align: center;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .quote-block .q-arabic {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    direction: rtl;
+    color: var(--ink);
+    line-height: 2;
+    margin-bottom: 0.6rem;
+  }
+
+  .quote-block .q-trans {
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .quote-block .q-meaning {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2.5rem;
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 0.82rem;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  footer .gold { color: var(--gold); }
+
+  /* ── Ornament ── */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: 0.6em;
+    margin: 2rem 0 0.5rem;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 600px) {
+    .card { padding: 1.4rem 1.2rem; }
+    .contrast-table th, .contrast-table td { padding: 0.65rem 0.7rem; }
+    header { padding: 2.5rem 1.2rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-arabic">أَنْتَ … وَأَنَا</div>
+  <div class="header-sub">You are … and I am</div>
+  <p class="header-desc">The most honest words a servant can say — the beautiful contrast between Allah's perfection and our nothingness</p>
+</header>
+
+<main>
+
+  <!-- Intro quote -->
+  <div class="quote-block" style="margin-top:2.5rem;">
+    <div class="q-arabic">أَنْتَ الْغَنِيُّ وَأَنَا الْفَقِيرُ</div>
+    <div class="q-trans">Antal Ghaniyyu wa anal Faqir</div>
+    <div class="q-meaning">"You are the Rich — and I am the poor"</div>
+  </div>
+
+  <!-- Group 1 -->
+  <div class="section-title">Existence &amp; Power</div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْقَوِيُّ</span> وَ<span class="ana">أَنَا الضَّعِيفُ</span></div>
+    <div class="transliteration">Antal Qawiyyu wa anal Da'if</div>
+    <div class="translation">"You are the Strong — and I am the weak"</div>
+    <div class="insight">In every moment of helplessness, this is the truth</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْعَزِيزُ</span> وَ<span class="ana">أَنَا الذَّلِيلُ</span></div>
+    <div class="transliteration">Antal 'Azizu wa ana adh-Dhalil</div>
+    <div class="translation">"You are the Mighty — and I am the lowly"</div>
+    <div class="insight">No matter how great a man thinks he is — before Allah he is nothing</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْخَالِقُ</span> وَ<span class="ana">أَنَا الْمَخْلُوقُ</span></div>
+    <div class="transliteration">Antal Khaliqu wa anal Makhluq</div>
+    <div class="translation">"You are the Creator — and I am the created"</div>
+    <div class="insight">He made us from nothing — we own nothing of ourselves</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْحَيُّ</span> وَ<span class="ana">أَنَا الْمَيِّتُ</span></div>
+    <div class="transliteration">Antal Hayyu wa anal Mayyit</div>
+    <div class="translation">"You are the Ever-Living — and I am the one who will die"</div>
+    <div class="insight">He never dies — we are just passing guests in this world</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الدَّائِمُ</span> وَ<span class="ana">أَنَا الْفَانِي</span></div>
+    <div class="transliteration">Antal Da'imu wa anal Fani</div>
+    <div class="translation">"You are the Eternal — and I am the one who perishes"</div>
+    <div class="insight">Everything around us will vanish — only Allah remains forever</div>
+  </div>
+
+  <!-- Group 2 -->
+  <div class="section-title">Knowledge &amp; Guidance</div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْعَالِمُ</span> وَ<span class="ana">أَنَا الْجَاهِلُ</span></div>
+    <div class="transliteration">Antal 'Alimu wa anal Jahil</div>
+    <div class="translation">"You are the All-Knowing — and I am the ignorant"</div>
+    <div class="insight">All our knowledge is just a drop — His knowledge has no shore</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْهَادِي</span> وَ<span class="ana">أَنَا الضَّالُّ</span></div>
+    <div class="transliteration">Antal Hadi wa anal Dall</div>
+    <div class="translation">"You are the Guide — and I am the lost one"</div>
+    <div class="insight">Without His guidance every soul wanders in darkness</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ النُّورُ</span> وَ<span class="ana">أَنَا فِي الظُّلُمَاتِ</span></div>
+    <div class="transliteration">Antal Nuru wa ana fiz-Zulumat</div>
+    <div class="translation">"You are the Light — and I am in the darkness"</div>
+    <div class="insight">Without His light — the heart lives in complete darkness</div>
+  </div>
+
+  <!-- Group 3 -->
+  <div class="section-title">Mercy &amp; Forgiveness</div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْغَافِرُ</span> وَ<span class="ana">أَنَا الْمُذْنِبُ</span></div>
+    <div class="transliteration">Antal Ghafiru wa anal Mudhnib</div>
+    <div class="translation">"You are the Forgiver — and I am the sinner"</div>
+    <div class="insight">The most honest thing a human can say — every soul is a sinner</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الشَّافِي</span> وَ<span class="ana">أَنَا الْمَرِيضُ</span></div>
+    <div class="transliteration">Antal Shafi wa anal Marid</div>
+    <div class="translation">"You are the Healer — and I am the sick one"</div>
+    <div class="insight">No doctor heals — Allah heals. The doctor is only His means</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ التَّوَّابُ</span> وَ<span class="ana">أَنَا الْعَاصِي</span></div>
+    <div class="transliteration">Antal Tawwabu wa anal 'Asi</div>
+    <div class="translation">"You are the Accepter of Repentance — and I am the disobedient"</div>
+    <div class="insight">No matter how many times we fall — His door of return never closes</div>
+  </div>
+
+  <!-- Group 4 -->
+  <div class="section-title">Provision &amp; Need</div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الرَّازِقُ</span> وَ<span class="ana">أَنَا الْمَرْزُوقُ</span></div>
+    <div class="transliteration">Antal Raziqu wa anal Marzuq</div>
+    <div class="translation">"You are the Provider — and I am the one provided for"</div>
+    <div class="insight">Every breath, every meal, every heartbeat — all from Him</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْكَافِي</span> وَ<span class="ana">أَنَا الْمُحْتَاجُ</span></div>
+    <div class="transliteration">Antal Kafi wa anal Muhtaj</div>
+    <div class="translation">"You are the Sufficient — and I am the one in need"</div>
+    <div class="insight">He needs nothing from us — we need everything from Him</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْمُعْطِي</span> وَ<span class="ana">أَنَا السَّائِلُ</span></div>
+    <div class="transliteration">Antal Mu'ti wa anal Sa'il</div>
+    <div class="translation">"You are the Giver — and I am the one asking"</div>
+    <div class="insight">We come to Him with empty hands — He gives without limit</div>
+  </div>
+
+  <!-- Group 5 -->
+  <div class="section-title">Lordship &amp; Servitude</div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الرَّبُّ</span> وَ<span class="ana">أَنَا الْعَبْدُ</span></div>
+    <div class="transliteration">Antal Rabbu wa anal 'Abd</div>
+    <div class="translation">"You are the Lord — and I am the slave"</div>
+    <div class="insight">The most beautiful relationship — complete belonging to Him</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الْمَوْلَى</span> وَ<span class="ana">أَنَا الْمَوْلُودُ لِلْفَنَاءِ</span></div>
+    <div class="transliteration">Antal Mawla wa anal Mawludu lil-Fana</div>
+    <div class="translation">"You are the Master — and I am born only to perish"</div>
+    <div class="insight">He is eternal Master — we are born with an expiry date</div>
+  </div>
+
+  <div class="card">
+    <div class="arabic"><span class="anta">أَنْتَ الصَّبُورُ</span> وَ<span class="ana">أَنَا الْعَجُولُ</span></div>
+    <div class="transliteration">Antal Saburu wa anal 'Ajul</div>
+    <div class="translation">"You are the Most Patient — and I am the hasty one"</div>
+    <div class="insight">We rush and panic — He is never in a hurry, never late</div>
+  </div>
+
+  <!-- Summary Table -->
+  <div class="section-title">All Contrasts at a Glance</div>
+
+  <table class="contrast-table">
+    <thead>
+      <tr>
+        <th style="text-align:right; direction:rtl;">أَنْتَ — YOU ARE</th>
+        <th>Meaning</th>
+        <th style="text-align:right; direction:rtl;">وَأَنَا — AND I AM</th>
+        <th>Meaning</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-arabic col-anta">الْغَنِيُّ</td>
+        <td class="col-meaning">The Rich</td>
+        <td class="col-arabic col-ana">الْفَقِيرُ</td>
+        <td class="col-meaning">The poor</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الْقَوِيُّ</td>
+        <td class="col-meaning">The Strong</td>
+        <td class="col-arabic col-ana">الضَّعِيفُ</td>
+        <td class="col-meaning">The weak</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الْعَزِيزُ</td>
+        <td class="col-meaning">The Mighty</td>
+        <td class="col-arabic col-ana">الذَّلِيلُ</td>
+        <td class="col-meaning">The lowly</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الْخَالِقُ</td>
+        <td class="col-meaning">The Creator</td>
+        <td class="col-arabic col-ana">الْمَخْلُوقُ</td>
+        <td class="col-meaning">The created</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الْحَيُّ</td>
+        <td class="col-meaning">The Ever-Living</td>
+        <td class="col-arabic col-ana">الْمَيِّتُ</td>
+        <td class="col-meaning">Who will die</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الدَّائِمُ</td>
+        <td class="col-meaning">The Eternal</td>
+        <td class="col-arabic col-ana">الْفَانِي</td>
+        <td class="col-meaning">Who perishes</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الْعَالِمُ</td>
+        <td class="col-meaning">The All-Knowing</td>
+        <td class="col-arabic col-ana">الْجَاهِلُ</td>
+        <td class="col-meaning">The ignorant</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الْهَادِي</td>
+        <td class="col-meaning">The Guide</td>
+        <td class="col-arabic col-ana">الضَّالُّ</td>
+        <td class="col-meaning">The lost one</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">النُّورُ</td>
+        <td class="col-meaning">The Light</td>
+        <td class="col-arabic col-ana">فِي الظُّلُمَاتِ</td>
+        <td class="col-meaning">In darkness</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الْغَافِرُ</td>
+        <td class="col-meaning">The Forgiver</td>
+        <td class="col-arabic col-ana">الْمُذْنِبُ</td>
+        <td class="col-meaning">The sinner</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الشَّافِي</td>
+        <td class="col-meaning">The Healer</td>
+        <td class="col-arabic col-ana">الْمَرِيضُ</td>
+        <td class="col-meaning">The sick</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الرَّازِقُ</td>
+        <td class="col-meaning">The Provider</td>
+        <td class="col-arabic col-ana">الْمَرْزُوقُ</td>
+        <td class="col-meaning">Provided for</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الْكَافِي</td>
+        <td class="col-meaning">The Sufficient</td>
+        <td class="col-arabic col-ana">الْمُحْتَاجُ</td>
+        <td class="col-meaning">The needy</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الرَّبُّ</td>
+        <td class="col-meaning">The Lord</td>
+        <td class="col-arabic col-ana">الْعَبْدُ</td>
+        <td class="col-meaning">The slave</td>
+      </tr>
+      <tr>
+        <td class="col-arabic col-anta">الصَّبُورُ</td>
+        <td class="col-meaning">The Patient</td>
+        <td class="col-arabic col-ana">الْعَجُولُ</td>
+        <td class="col-meaning">The hasty</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Closing wisdom -->
+  <div class="quote-block">
+    <div class="q-arabic">لَا مَلْجَأَ وَلَا مَنْجَا مِنْكَ إِلَّا إِلَيْكَ</div>
+    <div class="q-trans">La malja'a wa la manja minka illa ilayk</div>
+    <div class="q-meaning">"There is no refuge and no escape from You — except to You"</div>
+  </div>
+
+  <div class="ornament">✦ ✦ ✦</div>
+
+  <p style="text-align:center; font-style:italic; color:var(--ink-muted); font-size:0.9rem; margin-top:1.5rem; line-height:2;">
+    "The closest a servant ever gets to Allah is when he truly sees<br>his own nothingness before Allah's greatness."
+  </p>
+
+</main>
+
+<footer>
+  <span class="gold">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span><br><br>
+  May Allah accept our du'as and grant us true humility before Him — آمين
+</footer>
+
+</body>
+</html>
